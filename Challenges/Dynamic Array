@@ -1,0 +1,39 @@
+/*
+ * Complete the 'dynamicArray' function below.
+ *
+ * The function is expected to return an INTEGER_ARRAY.
+ * The function accepts following parameters:
+ *  1. INTEGER n
+ *  2. 2D_INTEGER_ARRAY queries
+ */
+
+function dynamicArray(n, queries) {
+    // Write your code here
+    //create 2-dimensional array of n arrays.     
+    let arr = [];    
+    for (let x = 0; x < n; x++){
+        arr.push([]);
+    }
+    console.log('arr: ', arr);
+    
+    //initialize lastAnswer to 0    
+    let lastAnswer = 0;   
+    console.log('queries: ', queries);  
+    for (let x = 0; x < queries.length; x++){
+        
+        if (queries[x][0] === 1){
+        let idx = ((queries[x][1] ^ lastAnswer) % 2);
+        arr[idx].push(queries[x][2]);
+        console.log('arr after push: ', arr);
+    } else{
+        let idx = ((queries[x][1] ^ lastAnswer) % 2);
+        lastAnswer = (queries[x][2] % arr[idx].length);
+        console.log(lastAnswer);
+        return arr[idx];        
+    }
+        
+    }
+    
+    // return 'something';
+
+}
