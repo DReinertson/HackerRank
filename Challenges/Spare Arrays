@@ -1,0 +1,27 @@
+// Complete the matchingStrings function below.
+function matchingStrings(strings, queries) {
+    
+    let stringCount = new Map();
+    let result = [];
+    
+    //Initialize a map, counting how many times each string occurs in strings array
+    for (let x = 0; x < strings.length; x++){
+        if(stringCount.has(strings[x])){
+            stringCount.set(strings[x], stringCount.get(strings[x]) + 1)
+        } else{
+            stringCount.set(strings[x], 1);
+        }
+    }
+    
+    for (let y = 0; y < queries.length; y++){
+        if (stringCount.has(queries[y])){
+            result.push(stringCount.get(queries[y]));
+        } else{
+            result.push(0);
+        }
+    }
+    
+    return result;
+
+
+}
