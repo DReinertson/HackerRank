@@ -1,0 +1,37 @@
+// Complete the insertNodeAtPosition function below.
+
+/*
+ * For your reference:
+ *
+ * SinglyLinkedListNode {
+ *     int data;
+ *     SinglyLinkedListNode next;
+ * }
+ *
+ */
+function insertNodeAtPosition(head, data, position) {
+    
+    let newNode = new SinglyLinkedListNode(data);
+    let index = 1; 
+    let current = head; 
+    
+    console.log(head);
+    
+    while (current.next !== null){
+        console.log('position beginning while: ', index);
+        console.log(current.next);
+        if(index === position){
+            console.log('matches', index, position);
+            newNode.next = current.next;
+            current.next = newNode;
+            console.log('head after addition: ', head);
+            return head;
+        }
+        index ++;
+        
+        console.log('position after: ', index);
+        current = current.next;
+    }
+
+
+}
